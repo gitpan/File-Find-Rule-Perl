@@ -6,6 +6,7 @@ inc/Module/Install/Fetch.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
 inc/Module/Install/Win32.pm
+inc/Module/Install/With.pm
 inc/Module/Install/WriteAll.pm
 lib/File/Find/Rule/Perl.pm
 LICENSE
@@ -15,6 +16,7 @@ META.yml
 README
 t/01_compile.t
 t/02_main.t
+t/03_no_index.t
 t/97_meta.t
 t/98_pod.t
 t/99_pmv.t

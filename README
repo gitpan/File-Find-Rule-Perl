@@ -8,15 +8,21 @@ SYNOPSIS
       # Find all Perl files smaller than 10k
       my @files = File::Find::Rule->perl_file
                                   ->size('<10Ki')
-                                  ->in( $dir );
+                                  ->in('dir');
+  
+      # Locate all the modules that PAUSE will index
+      my @mod = File::Find::Rule->no_index
+                                ->perl_module
+                                ->in('My-Distribution');
 
 DESCRIPTION
     I write a lot of things that muck with Perl files. And it always annoyed
     me that finding "perl files" requires a moderately complex
     File::Find::Rule pattern.
 
-    File::Find::Rule::Perl provides methods for finding various Perl-related
-    files.
+    File::Find::Rule::Perl provides methods for finding various types
+    Perl-related files, or replicating search queries run on a distribution
+    in various parts of the CPAN ecosystem.
 
 METHODS
   perl_module
@@ -49,6 +55,25 @@ METHODS
     This includes all the files matching the above "perl_module",
     "perl_test", "perl_installer" and "perl_script" rules.
 
+  no_index
+      # Provide the rules directly
+      $rule->no_index(
+          directory => [ 'inc', 't', 'examples' ],
+          file      => [ 'Foo.pm', 'lib/Foo.pm' ],
+      );
+  
+      # Provide a META.yml to use
+      $rule->no_index( 'META.yml' );
+  
+      # Provide a dist root directory to look for a META.yml in
+      $rule->no_index( 'My-Distribution' );
+  
+      # Automatically pick up a META.yml from the target directory
+      $rule->no_index->in( 'My-Distribution' );
+
+    The "no_index" method applies a set of rules as per the no_index section
+    in a "META.yml" file.
+
 SUPPORT
     Bugs should always be submitted via the CPAN bug tracker
 
@@ -63,7 +88,7 @@ SEE ALSO
     <http://ali.as/>, File::Find::Rule, File::Find::Rule::PPI
 
 COPYRIGHT
-    Copyright 2006 - 2008 Adam Kennedy.
+    Copyright 2006 - 2009 Adam Kennedy.
 
     This program is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
