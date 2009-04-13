@@ -20,3 +20,6 @@ t/03_no_index.t
 t/97_meta.t
 t/98_pod.t
 t/99_pmv.t
+t/dist/lib/Foo.pm
+t/dist/META.yml
+t/dist/t/01_compile.t

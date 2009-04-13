@@ -21,12 +21,10 @@ no_index:
     - t
 requires:
   File::Find::Rule: 0.20
-  File::Spec: 0.82
+  File::Spec: 3.27
   Params::Util: 0.38
   Parse::CPAN::Meta: 0.04
   perl: 5.00503
 resources:
-  ChangeLog: http://fisheye2.atlassian.com/changelog/cpan/trunk/File-Find-Rule-Perl
   license: http://dev.perl.org/licenses/
-  repository: http://svn.ali.as/cpan/trunk/File-Find-Rule-Perl
-version: 1.06
+version: 1.05

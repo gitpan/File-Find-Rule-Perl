@@ -4,13 +4,13 @@ NAME
 SYNOPSIS
       use File::Find::Rule       ();
       use File::Find::Rule::Perl ();
-  
-      # Find all Perl files smaller than 10k
+      
+  # Find all Perl files smaller than 10k
       my @files = File::Find::Rule->perl_file
                                   ->size('<10Ki')
                                   ->in('dir');
-  
-      # Locate all the modules that PAUSE will index
+      
+  # Locate all the modules that PAUSE will index
       my @mod = File::Find::Rule->no_index
                                 ->perl_module
                                 ->in('My-Distribution');
@@ -61,14 +61,14 @@ METHODS
           directory => [ 'inc', 't', 'examples' ],
           file      => [ 'Foo.pm', 'lib/Foo.pm' ],
       );
-  
-      # Provide a META.yml to use
+      
+  # Provide a META.yml to use
       $rule->no_index( 'META.yml' );
-  
-      # Provide a dist root directory to look for a META.yml in
+      
+  # Provide a dist root directory to look for a META.yml in
       $rule->no_index( 'My-Distribution' );
-  
-      # Automatically pick up a META.yml from the target directory
+      
+  # Automatically pick up a META.yml from the target directory
       $rule->no_index->in( 'My-Distribution' );
 
     The "no_index" method applies a set of rules as per the no_index section
