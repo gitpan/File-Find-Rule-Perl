@@ -47,7 +47,7 @@ use Parse::CPAN::Meta ();
 
 use vars qw{$VERSION @ISA @EXPORT};
 BEGIN {
-	$VERSION = '1.06';
+	$VERSION = '1.07';
 	@ISA     = 'File::Find::Rule';
 	@EXPORT  = @File::Find::Rule::EXPORT;
 }
@@ -256,10 +256,10 @@ sub File::Find::Rule::no_index {
 		my $relpath = File::Spec->abs2rel($absname, $root);
 
 		# Attempt to match a META.yml entry
-		if ( $rule->{directory}->{$relpath} and -d $absname ) {
+		if ( ($rule->{directory}->{$relpath} or $rule->{directory}->{$absname} ) and -d $absname ) {
 			return 1;
 		}
-		if ( $rule->{file}->{$relpath} and -f $absname ) {
+		if ( ( $rule->{file}->{$relpath} or $rule->{file}->{$absname} ) and -f $absname ) {
 			return 1;
 		}
 		return 0;
