@@ -25,7 +25,7 @@ SCOPE: {
 		[ ],
 		[ curdir() ],
 		[ 'META.yml' ],
-		[ { directory => [ 'inc', 't' ] } ],
+		[ { directory => [ 'inc', 't', 'xt' ] } ],
 	);
 
 	foreach my $p ( @params ) {
@@ -38,6 +38,7 @@ SCOPE: {
 			LICENSE
 			README
 			pm_to_blib
+                        MYMETA.yml
 		};
 		my @files = sort grep {
 			! /^debian\b/
