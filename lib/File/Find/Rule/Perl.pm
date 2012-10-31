@@ -46,7 +46,7 @@ use Parse::CPAN::Meta 1.38 ();
 
 use vars qw{$VERSION @ISA @EXPORT};
 BEGIN {
-	$VERSION = '1.12';
+	$VERSION = '1.13';
 	@ISA     = 'File::Find::Rule';
 	@EXPORT  = @File::Find::Rule::EXPORT;
 }
@@ -310,7 +310,7 @@ L<http://ali.as/>, L<File::Find::Rule>, L<File::Find::Rule::PPI>
 
 =head1 COPYRIGHT
 
-Copyright 2006 - 2011 Adam Kennedy.
+Copyright 2006 - 2012 Adam Kennedy.
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
